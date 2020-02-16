@@ -1,20 +1,19 @@
 package com.springProject.spring;
 
-import com.springProject.spring.config.ApplicationConfiguration;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-public class Application {
+@SpringBootApplication
+public class Application implements CommandLineRunner {
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-        applicationContext.register(ApplicationConfiguration.class);
-        applicationContext.refresh();
+        SpringApplication.run(Application.class, args);
 
-        SchoolManager schoolManager = (SchoolManager) applicationContext.getBean("schoolManager");
+    }
 
-        schoolManager.saveData();
-
+    public void run(String... args) throws Exception {
 
     }
 }
