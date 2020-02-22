@@ -1,13 +1,18 @@
 package com.springProject.spring.model;
 
-public abstract class DefaultModel {
-    protected int id;
+import javax.persistence.*;
 
-    public int getId() {
+@MappedSuperclass
+public abstract class DefaultModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long id;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

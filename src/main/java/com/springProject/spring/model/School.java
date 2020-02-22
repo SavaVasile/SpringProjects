@@ -1,11 +1,14 @@
 package com.springProject.spring.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import java.util.List;
 import java.util.Objects;
-
+@Entity
 public class School extends DefaultModel {
-
+    @Column
     private String name;
+    @Column
     private String address;
 
 
@@ -43,4 +46,13 @@ public class School extends DefaultModel {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    @Override
+    public String toString() {
+        return "School {" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }
+

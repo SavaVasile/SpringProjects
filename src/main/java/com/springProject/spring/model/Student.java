@@ -1,34 +1,59 @@
 package com.springProject.spring.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import java.util.Objects;
 
-public class Student  extends DefaultModel {
+@Entity
+public class Student extends DefaultModel {
 
-    private String firstName;
-    private String lastName;
+    @Column
+    private String name;
+    @Column
     private String cnp;
+    @Column
+    private String gender;
+    @Column
+    private int age;
+
+    private Student(Builder builder) {
+        this.name = builder.name;
+        this.cnp = builder.cnp;
+        this.gender = builder.gender;
+        this.age = builder.age;
+    }
+
+    public static Builder newStudent() {
+        return new Builder();
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
     public Student() {
 
     }
 
-
-
-
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCnp() {
@@ -50,5 +75,45 @@ public class Student  extends DefaultModel {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Student {" +
+                "name='" + name + '\'' +
+                ", cnp='" + cnp + '\'' +
+                '}';
+    }
+    public static final class Builder {
+        private String name;
+        private String cnp;
+        private String gender;
+        private int age;
+
+
+
+        public Student build() {
+            return new Student(this);
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder cnp(String cnp) {
+            this.cnp = cnp;
+            return this;
+        }
+
+        public Builder gender(String gender) {
+            this.gender = gender;
+            return this;
+        }
+
+        public Builder age(int age) {
+            this.age = age;
+            return this;
+        }
     }
 }
