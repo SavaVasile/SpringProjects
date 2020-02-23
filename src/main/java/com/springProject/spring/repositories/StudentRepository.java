@@ -9,5 +9,6 @@ import java.util.List;
 public interface StudentRepository extends CrudRepository<Student, Long> {
     List<Student> findByCnp(String cnp);
     List<Student>findByName(String name);
+    List<Student>findById(int id);
 
 }

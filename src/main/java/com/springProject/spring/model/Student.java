@@ -2,25 +2,49 @@ package com.springProject.spring.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.*;
 import java.util.Objects;
 
 @Entity
 public class Student extends DefaultModel {
 
     @Column
+    @NotBlank(message = "Name is mandatory")
     private String name;
+
     @Column
+    @NotNull
+    @Size(min = 13,max = 13, message = "CNP must be 13 digits")
+    @Digits(integer = 13,fraction = 0, message = "CNP must be 13 digits")
     private String cnp;
     @Column
+    @NotNull(message = "Gender required")
     private String gender;
+
     @Column
+    @NotNull
+    @Min(value = 1,message = "Age must be at least 1")
+    @Max(value = 130,message = "Age must be lower then 130")
     private int age;
+    @Column
+    @NotNull(message = "Email required")
+    @Email(message = "Email must be valid")
+    private String email;
 
     private Student(Builder builder) {
         this.name = builder.name;
         this.cnp = builder.cnp;
         this.gender = builder.gender;
         this.age = builder.age;
+        this.email = builder.email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public static Builder newStudent() {
@@ -86,6 +110,7 @@ public class Student extends DefaultModel {
     }
     public static final class Builder {
         private String name;
+        private String email;
         private String cnp;
         private String gender;
         private int age;
@@ -98,6 +123,10 @@ public class Student extends DefaultModel {
 
         public Builder name(String name) {
             this.name = name;
+            return this;
+        }
+        public Builder email(String email) {
+            this.email = email;
             return this;
         }
 

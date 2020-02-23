@@ -17,12 +17,13 @@ public class DataReader {
 
         List<Student> result = new ArrayList<>();
         for (int i = 0; i < studentCount; i++) {
-            System.out.println("Enter name: ");
+            /*System.out.println("Enter name: ");
             String studentName = scanner.next();
             System.out.println("Enter CNP: ");
-            String cnp = scanner.next();
+            String cnp = scanner.next();*/
             result.add(Student.newStudent()
                     .cnp("2141241241424")
+                    .email("myEmail@gmail.com")
                     .name("Name")
                     .gender("Male")
                     .age(24).build());
@@ -35,7 +36,7 @@ public class DataReader {
 
     }
 
-    public List<School> readSchools() {
+    /*public List<School> readSchools() {
         Scanner scanner = new Scanner(System.in);
         int schoolCount = scanner.nextInt();
 
@@ -51,6 +52,6 @@ public class DataReader {
             schools.add(school);
         }
         return schools;
-    }
+    }*/
 
 }

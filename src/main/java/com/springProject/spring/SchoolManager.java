@@ -65,7 +65,7 @@ public class SchoolManager {
         studentRepository.saveAll(readStudents);
     }
 
-    public void saveAllSchools(List<School> readSchools) {
+   /* public void saveAllSchools(List<School> readSchools) {
         schoolRepository.saveAll(readSchools);
-    }
+    }*/
 }

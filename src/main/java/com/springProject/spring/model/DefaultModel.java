@@ -3,7 +3,7 @@ package com.springProject.spring.model;
 import javax.persistence.*;
 
 @MappedSuperclass
-public abstract class DefaultModel {
+public class DefaultModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
