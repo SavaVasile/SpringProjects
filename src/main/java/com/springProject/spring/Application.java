@@ -1,6 +1,6 @@
 //package com.springProject.spring;
 //
-//import com.springProject.spring.repositories.DataReader;
+//import com.springProject.spring.service.DataReader;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.CommandLineRunner;
 //import org.springframework.boot.SpringApplication;

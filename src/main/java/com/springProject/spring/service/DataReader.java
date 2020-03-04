@@ -1,4 +1,4 @@
-package com.springProject.spring.repositories;
+package com.springProject.spring.service;
 
 import com.springProject.spring.model.School;
 import com.springProject.spring.model.Student;
